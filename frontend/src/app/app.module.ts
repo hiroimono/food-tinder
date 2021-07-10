@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+// modules
+import { HomeModule } from './home/home.module';
+
+// Routing
 import { AppRoutingModule } from './app-routing.module';
 
 // Components
@@ -12,16 +16,15 @@ import { DataStoreService } from './services/data-store.service';
 
 // Bootstrap Modules
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        HomeComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
+        HomeModule,
         AppRoutingModule,
         ModalModule
     ],
