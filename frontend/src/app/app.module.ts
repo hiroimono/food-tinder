@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -23,6 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         FormsModule,
         HomeModule,
         AppRoutingModule,
