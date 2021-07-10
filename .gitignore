@@ -39,9 +39,22 @@ speed-measure-plugin*.json
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
+yarn-debug.log
 testem.log
 /typings
 
 # System Files
 .DS_Store
 Thumbs.db
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.code-workspace
+
+# production
+/build
+/frontend/build
+/frontend/node_modules
+/backend/build

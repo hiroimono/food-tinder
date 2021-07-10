@@ -1,37 +1,37 @@
 {
     "name": "food-tinder",
-    "version": "0.0.0",
+    "version": "1.0.0",
+    "description": "An animated app similar to Tinder that makes it fun for people to find their favorite foods",
+    "main": "server.js",
+    "type": "module",
     "scripts": {
-        "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build"
+        "start": "nodemon backend/server",
+        "client": "npm start --prefix frontend",
+        "client-build": "npm run build --prefix frontend",
+        "dev": "concurrently \"npm start\" \"npm run client\"",
+        "build": "concurrently \"npm start\" \"npm run client-build\"",
+        "backend": "concurrently \"npm run start\""
     },
-    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hiroimono/food-tinder.git"
+    },
+    "author": "Huseyin Eltutan",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/hiroimono/food-tinder/issues"
+    },
+    "homepage": "https://github.com/hiroimono/food-tinder#readme",
     "dependencies": {
-        "@angular/animations": "~9.1.12",
-        "@angular/common": "~9.1.12",
-        "@angular/compiler": "~9.1.12",
-        "@angular/core": "~9.1.12",
-        "@angular/forms": "~9.1.12",
-        "@angular/platform-browser": "~9.1.12",
-        "@angular/platform-browser-dynamic": "~9.1.12",
-        "@angular/router": "~9.1.12",
-        "@fortawesome/angular-fontawesome": "^0.6.0",
-        "bootstrap": "^4.5.0",
-        "font-awesome": "^4.7.0",
-        "ngx-bootstrap": "^5.6.1",
-        "rxjs": "~6.5.4",
-        "tslib": "^1.10.0",
-        "zone.js": "~0.10.2"
+        "bcryptjs": "^2.4.3",
+        "colors": "^1.4.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-async-handler": "^1.1.4",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.12.5"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "~0.901.11",
-        "@angular/cli": "~9.1.11",
-        "@angular/compiler-cli": "~9.1.12",
-        "@types/node": "^12.11.1",
-        "codelyzer": "^5.1.2",
-        "ts-node": "~8.3.0",
-        "tslint": "~6.1.0",
-        "typescript": "~3.8.3"
+        "concurrently": "^6.0.2"
     }
 }
