@@ -4,7 +4,7 @@
 </h2>
 
 <app-card-container>
-    <ng-container *ngFor="let cat of productCategories">
-        <app-card [title]="cat.name" [image]="cat.image" (click)="selectCat(cat.name)"></app-card>
+    <ng-container *ngFor="let product of products">
+        <app-card [title]="product.name" [image]="product.imageSet[0].url"></app-card>
     </ng-container>
 </app-card-container>

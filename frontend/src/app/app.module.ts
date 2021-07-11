@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // modules
 import { HomeModule } from './home/home.module';
+import { SharedModule } from './shared/shared.module';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +31,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
         FormsModule,
         HttpClientModule,
         HomeModule,
+        SharedModule,
         AppRoutingModule,
         ModalModule
     ],

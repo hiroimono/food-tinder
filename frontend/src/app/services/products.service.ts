@@ -22,6 +22,16 @@ export class ProductsService {
         return this.httpClient.get<Product[]>(`api/products`)
     }
 
+    /**
+     * @description Fetch products of selected category
+     * @route GET api/products/category/:category
+     * @access public
+     * @returns Products[]
+     */
+    getCategoryProducts(cat: string): Observable<Product[]> {
+        return this.httpClient.get<Product[]>(`api/products/category/${cat}`)
+    }
+
     /** Error handling */
     handleError(error: HttpErrorResponse) {
         let errorMessage = '';

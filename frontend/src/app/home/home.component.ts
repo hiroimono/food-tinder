@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 /** Services */
@@ -16,7 +17,9 @@ export class HomeComponent implements OnInit {
     public productCategories: string[];
 
     constructor(
-        private _products: ProductsService
+        private _products: ProductsService,
+        private _router: Router,
+        private _route: ActivatedRoute,
     ) {
         this.products = [];
     }
@@ -56,5 +59,6 @@ export class HomeComponent implements OnInit {
 
     public selectCat(selected: string) {
         console.log('selected: ', selected);
+        this._router.navigate(['categories', selected], { relativeTo: this._route });
     }
 }

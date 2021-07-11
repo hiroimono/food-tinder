@@ -10,11 +10,13 @@ import { SharedModule } from '../shared/shared.module';
 /** Components */
 import { HomeComponent } from './home.component';
 import { CardComponent } from './card/card.component';
+import { CategoryProductsComponent } from './category-products/category-products.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
-        CardComponent
+        CardComponent,
+        CategoryProductsComponent
     ],
     imports: [
         CommonModule,
