@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+/** Services */
+import { ProductsService } from 'src/app/services/products.service';
 // import { DataStoreService } from '../../services/data-store.service';
 
 @Component({
@@ -7,9 +11,50 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    constructor() { }
+    public products: Product[];
+    private productsSubs: Subscription;
+    public productCategories: string[];
+
+    constructor(
+        private _products: ProductsService
+    ) {
+        this.products = [];
+    }
 
     ngOnInit() {
+        this.initProductSubs();
+        this.getProductCategories();
+    }
 
+    ngOnDestroy() {
+        this.productsSubs.unsubscribe();
+    }
+
+    private initProductSubs() {
+        this.productsSubs = this._products.getAllProducts().subscribe(res => {
+            console.log('res: ', res);
+            this.products = [...res];
+
+            if (this.products.length) this.productCategories = this.getProductCategories();
+        })
+    }
+
+    private getProductCategories() {
+        const catArr = [];
+        this.products.forEach(product => {
+            const found = catArr.find(item => item.name === product.category.name);
+            if (!found) {
+                catArr.push({
+                    name: product.category.name,
+                    image: product.imageSet[0].url
+                })
+            }
+        })
+
+        return catArr;
+    }
+
+    public selectCat(selected: string) {
+        console.log('selected: ', selected);
     }
 }
