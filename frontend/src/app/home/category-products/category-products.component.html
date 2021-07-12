@@ -4,7 +4,13 @@
 </h2>
 
 <app-card-container>
-    <ng-container *ngFor="let product of products">
+    <ng-container *ngFor="let product of products$ | async">
         <app-card [title]="product.name" [image]="product.imageSet[0].url"></app-card>
     </ng-container>
 </app-card-container>
+
+<div *ngIf="this.products?.length === 0" class="">
+    <div class="alert alert-danger text-center" role="alert">
+        Sorry! There isn't any product in this category
+    </div>
+</div>
