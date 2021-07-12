@@ -1,0 +1,10 @@
+<h2 class="lead text-center">
+    Would you like to find your favorites foods in a Tinder way? <br>
+    Then, Let's select a Food type below.
+</h2>
+
+<app-card-container>
+    <ng-container *ngFor="let cat of productCategories">
+        <app-card [title]="cat.name" [image]="cat.image" (click)="selectCat(cat.name)"></app-card>
+    </ng-container>
+</app-card-container>
