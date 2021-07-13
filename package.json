@@ -9,7 +9,7 @@
         "client": "npm start --prefix frontend",
         "client-build": "npm run build --prefix frontend",
         "dev": "concurrently \"npm start\" \"npm run client\"",
-        "build": "concurrently \"npm start\" \"npm run client-build\"",
+        "build": "concurrently \"npm run client-build\" \"npm start\"",
         "backend": "concurrently \"npm run start\""
     },
     "repository": {
@@ -28,7 +28,6 @@
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-async-handler": "^1.1.4",
-        "hammerjs": "^2.0.8",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^5.12.5"
     },
