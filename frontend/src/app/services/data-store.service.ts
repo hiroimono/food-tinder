@@ -15,8 +15,8 @@ export class DataStoreService {
     public childIndex$: Observable<number>;
 
     /** search text value */
-    private products: BehaviorSubject<Product[]>;
-    public products$: Observable<Product[]>;
+    private tinderProducts: BehaviorSubject<Product[]>;
+    public tinderProducts$: Observable<Product[]>;
 
     constructor() {
         this.parentSubject = new BehaviorSubject('');
@@ -25,8 +25,8 @@ export class DataStoreService {
         this.childIndex = new BehaviorSubject(null);
         this.childIndex$ = this.childIndex.asObservable();
 
-        this.products = new BehaviorSubject([]);
-        this.products$ = this.products.asObservable();
+        this.tinderProducts = new BehaviorSubject([]);
+        this.tinderProducts$ = this.tinderProducts.asObservable();
     }
 
     public setParentSubject(value: string) {
@@ -37,7 +37,7 @@ export class DataStoreService {
         this.childIndex.next(value);
     }
 
-    public setProducts(value: Product[]) {
-        this.products.next(value);
+    public setTinderProducts(value: Product[]) {
+        this.tinderProducts.next(value);
     }
 }

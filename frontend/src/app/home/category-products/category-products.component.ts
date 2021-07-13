@@ -57,10 +57,10 @@ export class CategoryProductsComponent {
                 this.products = [...products]
                 console.log('this.products: ', this.products);
                 this.tinderProducts = [...this.products]
-                this._store.setProducts(this.tinderProducts);
+                this._store.setTinderProducts(this.tinderProducts);
             })
 
-        this.tinderProductsSubs = this._store.products$.subscribe(products => this.tinderProducts = [...products])
+        this.tinderProductsSubs = this._store.tinderProducts$.subscribe(products => this.tinderProducts = [...products])
 
         this.subscription.add(this.tinderProductsSubs);
     }
@@ -69,22 +69,18 @@ export class CategoryProductsComponent {
         this.isTinderMode = event.checked
     }
 
-    // public onHide() {
-    //     this.getProductsSubs = this._products.getCategoryProducts(this.category)
-    //         .subscribe(products => {
-    //             this.products = [...products]
-    //             console.log('this.products: ', this.products);
-    //             this._store.setProducts(this.products);
-    //         });
+    public onSwipe(event: any) {
+        const swipeX = Math.abs(event.deltaX) > 100 ? (event.deltaX > 0 ? "swiperight" : "swipeleft") : "";
+        // const swipeY = Math.abs(event.deltaY) > 100 ? (event.deltaY > 0 ? "Down" : "Up") : "";
 
-    //     this.subscription.add(this.getProductsSubs);
-    // }
+        this.cardAnimation(swipeX);
+    }
 
     public cardAnimation(value: string) {
         this._store.setParentSubject(value);
         setTimeout(() => {
             this.tinderProducts.shift();
-            this._store.setProducts(this.tinderProducts);
-        }, 200)
+            this._store.setTinderProducts(this.tinderProducts);
+        }, 300)
     }
 }

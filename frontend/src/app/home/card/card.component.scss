@@ -32,10 +32,3 @@
         height: $card_height_md;
     }
 }
-
-@media all and (min-width: 992px) {
-    .tinder-card {
-        width: $card_width_lg;
-        height: $card_height_lg;
-    }
-}

@@ -16,8 +16,8 @@ import { DataStoreService } from 'src/app/services/data-store.service';
     styleUrls: ['./card.component.scss'],
     animations: [
         trigger('cardAnimator', [
-            transition('* => swiperight', animate(750, keyframes(kf.swiperight))),
-            transition('* => swipeleft', animate(750, keyframes(kf.swipeleft)))
+            transition('* => swiperight', animate(500, keyframes(kf.swiperight))),
+            transition('* => swipeleft', animate(500, keyframes(kf.swipeleft)))
         ])
     ]
 })
@@ -33,7 +33,6 @@ export class CardComponent implements OnInit {
     public animationState: string;
     private subscriptions: Subscription;
     private productSubs: Subscription;
-    public clickedProductIndex: number;
     public products: Product[];
 
     constructor(
@@ -45,7 +44,7 @@ export class CardComponent implements OnInit {
             this.startAnimation(event);
         });
 
-        this.productSubs = this._store.products$.subscribe(products => {
+        this.productSubs = this._store.tinderProducts$.subscribe(products => {
             this.products = [...products];
         });
 

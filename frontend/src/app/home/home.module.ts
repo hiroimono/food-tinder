@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms';
 
@@ -19,6 +19,15 @@ import { HomeComponent } from './home.component';
 import { CardComponent } from './card/card.component';
 import { CategoryProductsComponent } from './category-products/category-products.component';
 
+import * as Hammer from 'hammerjs';
+
+@Injectable()
+export class MyHammerConfig extends HammerGestureConfig {
+    overrides = {
+        swipe: { direction: Hammer.DIRECTION_ALL }
+    }
+}
+
 @NgModule({
     declarations: [
         HomeComponent,
@@ -29,11 +38,18 @@ import { CategoryProductsComponent } from './category-products/category-products
         CommonModule,
         FormsModule,
         BrowserModule,
+        HammerModule,
         BrowserAnimationsModule,
         HomeRoutingModule,
         SharedModule,
         SidebarModule,
         InputSwitchModule,
+    ],
+    providers: [
+        {
+            provide: HAMMER_GESTURE_CONFIG,
+            useClass: MyHammerConfig
+        }
     ]
 })
 export class HomeModule { }

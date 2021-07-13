@@ -77,12 +77,3 @@
         }
     }
 }
-
-@media all and (min-width: 992px) {
-    .tinder-cover {
-        .tinder-cards {
-            top: calc(50% - #{$card_height_lg}/2);
-            right: calc(50% + #{$card_width_lg}/2);
-        }
-    }
-}

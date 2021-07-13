@@ -14,10 +14,10 @@
         <div Class="tinder-cover row justify-content-center align-content-between h-100">
             <h5 class="col-12 text-center text-white my-4">Find your favorite Food-Tinder</h5>
 
-            <ng-container *ngIf="products?.length">
+            <ng-container *ngIf="tinderProducts?.length">
                 <div class="tinder-cards">
-                    <ng-container *ngFor="let product of products; let i = index">
-                        <app-card [isTinderMode]="true" [product]="product" [index]="i">
+                    <ng-container *ngFor="let product of tinderProducts; let i = index">
+                        <app-card [isTinderMode]="true" [product]="product" [index]="i" (swipe)="onSwipe($event)">
                         </app-card>
 
                     </ng-container>

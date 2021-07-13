@@ -1,11 +1,11 @@
-import { keyframes, style, animate } from '@angular/animations';
+import { style } from '@angular/animations';
 
 export const swiperight = [
-    style({ opacity: 1 }),
-    style({ transform: 'translate3d(200%, 0, 0) rotate3d(0, 0, 1, 120deg)', opacity: 0 }),
+    style({ opacity: 1, offset: 0 }),
+    style({ transform: 'translate3d(300%, 0, 0) rotate3d(0, 0, 1, 120deg)', opacity: 0, offset: 1 }),
 ]
 
 export const swipeleft = [
-    style({ opacity: 1 }),
-    style({ transform: 'translate3d(-200%, 0, 0) rotate3d(0, 0, 1, -120deg)', opacity: 0 }),
+    style({ opacity: 1, offset: 0 }),
+    style({ transform: 'translate3d(-300%, 0, 0) rotate3d(0, 0, 1, -120deg)', opacity: 0, offset: 1 }),
 ]
