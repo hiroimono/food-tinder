@@ -1,17 +1,23 @@
+@import "../../../styles/sass-variables.scss";
+
 .tinder-cover {
     position: relative;
 
     .tinder-cards {
         z-index: 1;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
-        margin: 0 5px;
-        width: 100%;
-        max-width: 420px;
         position: fixed;
-        top: calc(50% - 180px);
-        right: calc(50% - 100px);
+
+        top: calc(50% - #{$card_height_sm}/2);
+        right: calc(50% + #{$card_width_sm}/2);
     }
 
     .control-btn-container {
@@ -58,6 +64,25 @@
             border-radius: 50%;
             color: #20b186;
             margin: 3px;
+        }
+    }
+}
+
+@media all and (min-width: 768px) {
+    .tinder-cover {
+
+        .tinder-cards {
+            top: calc(50% - #{$card_height_md}/2);
+            right: calc(50% + #{$card_width_md}/2);
+        }
+    }
+}
+
+@media all and (min-width: 992px) {
+    .tinder-cover {
+        .tinder-cards {
+            top: calc(50% - #{$card_height_lg}/2);
+            right: calc(50% + #{$card_width_lg}/2);
         }
     }
 }

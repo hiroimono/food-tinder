@@ -17,9 +17,10 @@ import { DataStoreService } from 'src/app/services/data-store.service';
 export class CategoryProductsComponent {
     public products$: Observable<Product[]>;
     public products: Product[];
+    public tinderProducts: Product[];
     private subscription: Subscription;
-    private subscription2: Subscription;
-    private productsSubs: Subscription;
+    private getProductsSubs: Subscription;
+    private tinderProductsSubs: Subscription;
     public isTinderMode: boolean;
     public animationState: string;
     public index: number;
@@ -55,34 +56,35 @@ export class CategoryProductsComponent {
             .subscribe(products => {
                 this.products = [...products]
                 console.log('this.products: ', this.products);
-                this._store.setProducts(this.products);
+                this.tinderProducts = [...this.products]
+                this._store.setProducts(this.tinderProducts);
             })
 
-        this.productsSubs = this._store.products$.subscribe(products => this.products = [...products])
+        this.tinderProductsSubs = this._store.products$.subscribe(products => this.tinderProducts = [...products])
 
-        this.subscription.add(this.productsSubs);
+        this.subscription.add(this.tinderProductsSubs);
     }
 
     public switchMode(event: { originalEvent: any, checked: boolean }) {
         this.isTinderMode = event.checked
     }
 
-    public onHide() {
-        this.subscription2 = this._products.getCategoryProducts(this.category)
-            .subscribe(products => {
-                this.products = [...products]
-                console.log('this.products: ', this.products);
-                this._store.setProducts(this.products);
-            });
+    // public onHide() {
+    //     this.getProductsSubs = this._products.getCategoryProducts(this.category)
+    //         .subscribe(products => {
+    //             this.products = [...products]
+    //             console.log('this.products: ', this.products);
+    //             this._store.setProducts(this.products);
+    //         });
 
-        this.subscription.add(this.subscription2);
-    }
+    //     this.subscription.add(this.getProductsSubs);
+    // }
 
     public cardAnimation(value: string) {
         this._store.setParentSubject(value);
         setTimeout(() => {
-            this.products.shift();
-            this._store.setProducts(this.products);
+            this.tinderProducts.shift();
+            this._store.setProducts(this.tinderProducts);
         }, 200)
     }
 }

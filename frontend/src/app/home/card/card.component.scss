@@ -1,3 +1,5 @@
+@import "../../../styles/sass-variables.scss";
+
 .card:not(.tinder-card) {
     border: 1px solid #e6e6e6;
     border-radius: 25px;
@@ -12,9 +14,8 @@
 }
 
 .tinder-card {
-    max-width: 260px;
-    max-height: 320px;
-    height: auto;
+    width: $card_width_sm;
+    height: $card_height_sm;
     border-radius: 25px;
     overflow: hidden;
     position: absolute;
@@ -23,4 +24,18 @@
     cursor: -webkit-grab;
     cursor: -moz-grab;
     cursor: grab;
+}
+
+@media all and (min-width: 768px) {
+    .tinder-card {
+        width: $card_width_md;
+        height: $card_height_md;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .tinder-card {
+        width: $card_width_lg;
+        height: $card_height_lg;
+    }
 }
