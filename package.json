@@ -10,7 +10,8 @@
         "client-build": "npm run build --prefix frontend",
         "dev": "concurrently \"npm start\" \"npm run client\"",
         "build": "concurrently \"npm run client-build\" \"npm start\"",
-        "backend": "concurrently \"npm run start\""
+        "backend": "concurrently \"npm run start\"",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
     },
     "repository": {
         "type": "git",
