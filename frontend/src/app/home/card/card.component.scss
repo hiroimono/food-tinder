@@ -1,5 +1,8 @@
-.card {
-    border: 2px solid #fff;
+@import "../../../styles/sass-variables.scss";
+
+.card:not(.tinder-card) {
+    border: 1px solid #e6e6e6;
+    border-radius: 25px;
     box-shadow: 0 0 15px 0 rgba(43, 78, 78, 0.1);
     transition: all .3s ease-in-out;
 
@@ -7,5 +10,25 @@
         box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
         transform: scale(1.05);
         cursor: pointer;
+    }
+}
+
+.tinder-card {
+    width: $card_width_sm;
+    height: $card_height_sm;
+    border-radius: 25px;
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+}
+
+@media all and (min-width: 768px) {
+    .tinder-card {
+        width: $card_width_md;
+        height: $card_height_md;
     }
 }

@@ -52,7 +52,10 @@
                         "styles": [
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "src/styles/font-awesome/css/all.min.css",
-                            "src/styles.scss"
+                            "node_modules/primeicons/primeicons.css",
+                            "node_modules/primeng/resources/themes/nova-light/theme.css",
+                            "node_modules/primeng/resources/primeng.min.css",
+                            "src/styles/styles.scss"
                         ],
                         "scripts": []
                     },
