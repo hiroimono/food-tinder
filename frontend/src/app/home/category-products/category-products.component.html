@@ -1,16 +1,62 @@
-<h2 class="lead text-center">
-    Would you like to find your favorites foods in a Tinder way? <br>
-    Then, Let's select a Food type below.
-</h2>
+<div class="row">
+    <h2 class="col-12 lead text-center">
+        Would you like to find your favorites foods in a Tinder way? <br>
+    </h2>
 
-<app-card-container>
-    <ng-container *ngFor="let product of products$ | async">
-        <app-card [title]="product.name" [image]="product.imageSet[0].url"></app-card>
-    </ng-container>
-</app-card-container>
+    <div class="col-12 d-flex justify-content-center align-items-center">
+        <span>Then, Let's switch to Tinder view.</span>
+        <p-inputSwitch [(ngModel)]="isTinderMode" styleClass="d-flex align-items-center ml-3"
+            (onChange)="switchMode($event)">
+        </p-inputSwitch>
+    </div>
 
-<div *ngIf="this.products?.length === 0" class="">
-    <div class="alert alert-danger text-center" role="alert">
-        Sorry! There isn't any product in this category
+    <p-sidebar [(visible)]="isTinderMode" [fullScreen]="true" styleClass="full-screen" (onHide)="onHide()">
+        <div Class="tinder-cover row justify-content-center align-content-between h-100">
+            <h5 class="col-12 text-center text-white my-4">Find your favorite Food-Tinder</h5>
+
+            <ng-container *ngIf="products?.length">
+                <div class="tinder-cards">
+                    <ng-container *ngFor="let product of products; let i = index">
+                        <app-card [isTinderMode]="true" [product]="product" [index]="i" class="tinder-card" [ngStyle]="{
+                                'z-index': (products.length - i + 1001),
+                                'transform': 'scale(' + (8 * products.length - (i)) / (8 * products.length) + ') translateY(-' + (.5 * products.length * i) + 'px)',
+                                'opacity': ((2*products.length) - i) / (2*products.length)
+                            }">
+                        </app-card>
+
+                    </ng-container>
+                </div>
+            </ng-container>
+
+            <div class="col-12 control-btn-container">
+                <div class="nope" (click)='cardAnimation("swipeleft")'>
+                    <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                </div>
+
+                <div class="favorite">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+
+                <div class="like" (click)='cardAnimation("swiperight")'>
+                    <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col h-100 p-5 p-sm-3 pb-5"> -->
+
+    </p-sidebar>
+
+    <div *ngIf="!isTinderMode">
+        <app-card-container>
+            <ng-container *ngFor="let product of products">
+                <app-card [title]="product.name" [image]="product.imageSet[0].url"></app-card>
+            </ng-container>
+        </app-card-container>
+
+        <div *ngIf="products?.length === 0" class="">
+            <div class="alert alert-danger text-center" role="alert">
+                Sorry! There isn't any product in this category
+            </div>
+        </div>
     </div>
 </div>

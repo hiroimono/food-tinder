@@ -1,0 +1,74 @@
+.tinder-cover {
+    position: relative;
+
+    .tinder-cards {
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        width: 100%;
+        max-width: 420px;
+
+        .tinder-card {
+            max-width: 260px;
+            max-height: 320px;
+            height: auto;
+            border-radius: 25px;
+            overflow: hidden;
+            position: absolute;
+            will-change: transform;
+            transition: all 0.3s ease-in-out;
+            cursor: -webkit-grab;
+            cursor: -moz-grab;
+            cursor: grab;
+        }
+    }
+
+    .control-btn-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 100%;
+
+        .nope {
+            width: 75px;
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: white;
+            border-radius: 50%;
+            color: #ff5e62;
+            margin: 3px;
+        }
+
+        .favorite {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: white;
+            border-radius: 50%;
+            color: #3ca4ff;
+            margin: 3px;
+        }
+
+        .like {
+            width: 75px;
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            background-color: white;
+            border-radius: 50%;
+            color: #20b186;
+            margin: 3px;
+        }
+    }
+}

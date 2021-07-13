@@ -1,7 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 // modules
@@ -27,8 +25,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ],
     imports: [
         BrowserModule,
-        BrowserAnimationsModule,
-        FormsModule,
         HttpClientModule,
         HomeModule,
         SharedModule,

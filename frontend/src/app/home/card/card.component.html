@@ -1,9 +1,23 @@
-<div class="col h-100 p-5 p-sm-3 pb-5">
-    <div class="card h-100 p-2">
-        <img *ngIf="image" [src]="image" class="card-img-top p-2" alt="..." />
-        <div class="card-body bg-white">
-            <h5 *ngIf="title" class="card-title text-center">{{title}}</h5>
-            <p *ngIf="text" class="card-text text-center">{{text}}</p>
+<ng-container *ngIf="isTinderMode; else cardView">
+    <div class="card" [@cardAnimator]="animationState" (@cardAnimator.done)="resetAnimationState($event)"
+        (swipeleft)='startAnimation("swipeleft")' (swiperight)='startAnimation("swiperight")'>
+
+        <img [src]="product.imageSet[0].url" class="card-img-top p-2" alt="..." />
+        <div class="card-body">
+            <h6 *ngIf="product.name" class="card-title text-center">{{product.name}}</h6>
+        </div>
+
+    </div>
+</ng-container>
+
+<ng-template #cardView>
+    <div class="col h-100 p-5 p-sm-3 pb-5">
+        <div class="card h-100 p-2">
+            <img *ngIf="image" [src]="image" class="card-img-top p-2" alt="..." />
+            <div class="card-body bg-white">
+                <h5 *ngIf="title" class="card-title text-center">{{title}}</h5>
+                <p *ngIf="text" class="card-text text-center">{{text}}</p>
+            </div>
         </div>
     </div>
-</div>
+</ng-template>

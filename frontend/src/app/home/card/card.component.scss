@@ -1,5 +1,6 @@
-.card {
-    border: 2px solid #fff;
+.card:not(.tinder-card) {
+    border: 1px solid #e6e6e6;
+    border-radius: 25px;
     box-shadow: 0 0 15px 0 rgba(43, 78, 78, 0.1);
     transition: all .3s ease-in-out;
 
