@@ -17,7 +17,9 @@ import { DataStoreService } from 'src/app/services/data-store.service';
     animations: [
         trigger('cardAnimator', [
             transition('* => swiperight', animate(500, keyframes(kf.swiperight))),
-            transition('* => swipeleft', animate(500, keyframes(kf.swipeleft)))
+            transition('* => swipeleft', animate(500, keyframes(kf.swipeleft))),
+            transition('* => swipedown', animate(500, keyframes(kf.swipedown))),
+            transition('* => swipeup', animate(500, keyframes(kf.swipeup)))
         ])
     ]
 })

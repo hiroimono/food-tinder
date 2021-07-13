@@ -14,22 +14,27 @@
         <div Class="tinder-cover row justify-content-center align-content-between h-100">
             <h5 class="col-12 text-center text-white my-4">Find your favorite Food-Tinder</h5>
 
-            <ng-container *ngIf="tinderProducts?.length">
+            <ng-container *ngIf="tinderProducts?.length; else tinder">
                 <div class="tinder-cards">
                     <ng-container *ngFor="let product of tinderProducts; let i = index">
-                        <app-card [isTinderMode]="true" [product]="product" [index]="i" (swipe)="onSwipe($event)">
+                        <app-card [isTinderMode]="true" [product]="product" [index]="i" (swipe)="onSwipe($event)"
+                            (pan)="onPan($event)" (pitch)="onPitch($event)">
                         </app-card>
 
                     </ng-container>
                 </div>
             </ng-container>
 
+            <ng-template #tinder>
+                <app-card [title]="'You have completed to select your tinder foods :)'"></app-card>
+            </ng-template>
+
             <div class="col-12 control-btn-container">
                 <div class="nope" (click)='cardAnimation("swipeleft")'>
                     <i class="fa fa-times fa-2x" aria-hidden="true"></i>
                 </div>
 
-                <div class="favorite">
+                <div class="favorite" (click)='cardAnimation("swipedown")'>
                     <i class="fa fa-star" aria-hidden="true"></i>
                 </div>
 
@@ -37,9 +42,13 @@
                     <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
                 </div>
             </div>
-        </div>
-        <!-- <div class="col h-100 p-5 p-sm-3 pb-5"> -->
 
+            <div class="tinder-status">
+                <i class="fa fa-times fa-4x" [ngClass]="{'color-nope': isNope }"></i>
+                <i class="fa fa-star fa-4x" [ngClass]="{'color-fav': isFav }"></i>
+                <i class="fa fa-heart fa-4x" [ngClass]="{'color-like': isLike }"></i>
+            </div>
+        </div>
     </p-sidebar>
 
     <div *ngIf="!isTinderMode">
