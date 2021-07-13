@@ -15,7 +15,7 @@ const __dirname = path.resolve();
 app.use(express.json());
 
 /** Router Middlewares */
-app.use('/products', productRouter);
+app.use('/api/products', productRouter);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/frontend/build')));
