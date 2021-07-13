@@ -10,3 +10,17 @@
         cursor: pointer;
     }
 }
+
+.tinder-card {
+    max-width: 260px;
+    max-height: 320px;
+    height: auto;
+    border-radius: 25px;
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+}

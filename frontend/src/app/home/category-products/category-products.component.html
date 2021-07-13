@@ -17,11 +17,7 @@
             <ng-container *ngIf="products?.length">
                 <div class="tinder-cards">
                     <ng-container *ngFor="let product of products; let i = index">
-                        <app-card [isTinderMode]="true" [product]="product" [index]="i" class="tinder-card" [ngStyle]="{
-                                'z-index': (products.length - i + 1001),
-                                'transform': 'scale(' + (8 * products.length - (i)) / (8 * products.length) + ') translateY(-' + (.5 * products.length * i) + 'px)',
-                                'opacity': ((2*products.length) - i) / (2*products.length)
-                            }">
+                        <app-card [isTinderMode]="true" [product]="product" [index]="i">
                         </app-card>
 
                     </ng-container>

@@ -1,6 +1,10 @@
 <ng-container *ngIf="isTinderMode; else cardView">
-    <div class="card" [@cardAnimator]="animationState" (@cardAnimator.done)="resetAnimationState($event)"
-        (swipeleft)='startAnimation("swipeleft")' (swiperight)='startAnimation("swiperight")'>
+    <div class="card tinder-card" [@cardAnimator]="animationState" (@cardAnimator.done)="resetAnimationState($event)"
+        (swipeleft)='startAnimation("swipeleft")' (swiperight)='startAnimation("swiperight")' [ngStyle]="{
+                'z-index': (products.length - index + 1001),
+                'transform': 'scale(' + (8 * products.length - (index)) / (8 * products.length) + ') translateY(-' + (.5 * products.length * index) + 'px)',
+                'opacity': ((2*products.length) - index) / (2*products.length)
+        }">
 
         <img [src]="product.imageSet[0].url" class="card-img-top p-2" alt="..." />
         <div class="card-body">

@@ -9,20 +9,9 @@
         margin: 0 5px;
         width: 100%;
         max-width: 420px;
-
-        .tinder-card {
-            max-width: 260px;
-            max-height: 320px;
-            height: auto;
-            border-radius: 25px;
-            overflow: hidden;
-            position: absolute;
-            will-change: transform;
-            transition: all 0.3s ease-in-out;
-            cursor: -webkit-grab;
-            cursor: -moz-grab;
-            cursor: grab;
-        }
+        position: fixed;
+        top: calc(50% - 180px);
+        right: calc(50% - 100px);
     }
 
     .control-btn-container {
