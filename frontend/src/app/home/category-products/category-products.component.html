@@ -51,7 +51,7 @@
         </div>
     </p-sidebar>
 
-    <div *ngIf="!isTinderMode">
+    <div class="w-100" *ngIf="!isTinderMode">
         <app-card-container>
             <ng-container *ngFor="let product of products">
                 <app-card [title]="product.name" [image]="product.imageSet[0].url"></app-card>
