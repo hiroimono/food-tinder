@@ -4,4 +4,16 @@
     z-index: 2;
     background-color: white;
     width: 100vw;
+
+    div {
+        font-size: 10px;
+    }
+}
+
+@media all and (min-width: 576px) {
+    .footer {
+        div {
+            font-size: 14px;
+        }
+    }
 }
