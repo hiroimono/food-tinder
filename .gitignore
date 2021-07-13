@@ -60,4 +60,4 @@ Thumbs.db
 /frontend/build
 /frontend/node_modules
 /backend/build
-/frontend/assets/product_example.json
+/frontend/src/assets/product_examples.json
