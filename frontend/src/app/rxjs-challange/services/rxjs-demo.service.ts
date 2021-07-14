@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 /** Rxjs */
 import { BehaviorSubject, interval, Observable, Subject, throwError, timer } from 'rxjs';
-import { catchError, delay, delayWhen, filter, first, map, retry, retryWhen, share, shareReplay, take, takeUntil, tap } from 'rxjs/operators';
+import { catchError, delayWhen, filter, map, retryWhen, scan, share, take, takeUntil, tap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -49,8 +49,8 @@ export class RxjsDemoService {
      * @filter | check whether current value has already being cached
      * @tap | If current value is different then cached value, make a new cache with new value
      * @tap | And, set its value to 'recent' bahavior subject.
-     * @retry | if
-     * @returns
+     * @retry | retry 3 times for every 5 s
+     * @returns | Observable
      */
     private initPollings(): Observable<number> {
         return this.allMachinePollings$ = interval(500)
@@ -65,7 +65,18 @@ export class RxjsDemoService {
                 retryWhen(error => error.pipe(
                     delayWhen(() => timer(500)),
                     tap(() => console.log('Retrying...')),
-                    take(3)
+                    /** first option to retry it 3 times but not logs error if unseccesful */
+                    // take(3),
+                    /** second option to retry it 3 times and logs error if unseccesful */
+                    scan((retryCount) => {
+                        if (retryCount >= 3) {
+                            throw error
+                        } else {
+                            retryCount++;
+                            console.log('retryCount: ', retryCount);
+                            return retryCount;
+                        }
+                    }, 0)
                 )),
                 share(),
                 takeUntil(this.stopPolling),
