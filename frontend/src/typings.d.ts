@@ -153,3 +153,11 @@ interface Product {
         "$date"?: string
     }
 }
+
+interface Data {
+    apiVersion?: string,
+    data?: {
+        name: string
+    },
+    status?: string
+}

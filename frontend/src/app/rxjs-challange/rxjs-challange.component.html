@@ -1,0 +1,53 @@
+<div class="container">
+    <h1 class="text-center">Challenge Part II: RxJS</h1>
+    <div class="row pt-5">
+        <!-- <div class="col-12">
+        <span class="badge badge-success" *ngFor="let item of all">{{item}}</span>
+    </div> -->
+
+        <div class="col-4">
+            <div class="row mb-1">
+                <div class="col text-right">First:</div>
+            </div>
+            <div class="row mb-1">
+                <div class="col text-right">Second:</div>
+            </div>
+            <div class="row mb-1">
+                <div class="col text-right">Third:</div>
+            </div>
+        </div>
+
+        <div class="col-8">
+            <div class="row mb-1">
+                <div class="col">
+                    <span class="badge badge-success mr-1" *ngFor="let item of recent1">{{item.status}}</span>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col">
+                    <span class="badge badge-success mr-1" *ngFor="let item of recent2">{{item.status}}</span>
+                </div>
+            </div>
+
+            <div class="row mb-1">
+                <div class="col">
+                    <span class="badge badge-success mr-1" *ngFor="let item of recent3">{{item.status}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col d-flex justify-content-around">
+            <div>
+                <button class="btn btn-primary ml-2" (click)="start()">Start</button>
+                <button class="btn btn-info ml-2" (click)="stop()">Stop</button>
+            </div>
+
+            <div>
+                <button class="btn btn-danger ml-2" (click)="clear()">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>
