@@ -4,6 +4,9 @@
     "description": "An animated app similar to Tinder that makes it fun for people to find their favorite foods",
     "main": "server.js",
     "type": "module",
+    "engines": {
+        "node": "14.16"
+    },
     "scripts": {
         "start": "nodemon backend/server",
         "client": "npm start --prefix frontend",
