@@ -19,7 +19,6 @@ export class CategoryProductsComponent {
     public products: Product[];
     public tinderProducts: Product[];
     private subscription: Subscription;
-    private getProductsSubs: Subscription;
     private tinderProductsSubs: Subscription;
     public isTinderMode: boolean;
     public animationState: string;
@@ -92,13 +91,17 @@ export class CategoryProductsComponent {
             if (event.deltaY < 50 && event.deltaY > -50) {
                 (this.isNope = false, this.isLike = false, this.isFav = true)
             } else {
-                event.deltaY > 50 ? (this.isNope = false, this.isLike = false, this.isFav = true) : (this.isNope = false, this.isLike = false, this.isFav = false);
+                event.deltaY > 50 ?
+                    (this.isNope = false, this.isLike = false, this.isFav = true) :
+                    (this.isNope = false, this.isLike = false, this.isFav = false)
             }
         } else {
             if (event.deltaY < -50) {
                 (this.isNope = false, this.isLike = false, this.isFav = false)
             } else {
-                event.deltaX < 0 ? (this.isLike = false, this.isFav = false, this.isNope = true) : (this.isNope = false, this.isFav = false, this.isLike = true);
+                event.deltaX < 0 ?
+                    (this.isLike = false, this.isFav = false, this.isNope = true) :
+                    (this.isNope = false, this.isFav = false, this.isLike = true)
             }
         }
 
@@ -112,13 +115,17 @@ export class CategoryProductsComponent {
             if (event.deltaY < 50 && event.deltaY > -50) {
                 (this.isNope = false, this.isLike = false, this.isFav = true)
             } else {
-                event.deltaY > 50 ? (this.isNope = false, this.isLike = false, this.isFav = true) : (this.isNope = false, this.isLike = false, this.isFav = false);
+                event.deltaY > 50 ?
+                    (this.isNope = false, this.isLike = false, this.isFav = true) :
+                    (this.isNope = false, this.isLike = false, this.isFav = false)
             }
         } else {
             if (event.deltaY < -50) {
                 (this.isNope = false, this.isLike = false, this.isFav = false)
             } else {
-                event.deltaX < 0 ? (this.isLike = false, this.isFav = false, this.isNope = true) : (this.isNope = false, this.isFav = false, this.isLike = true);
+                event.deltaX < 0 ?
+                    (this.isLike = false, this.isFav = false, this.isNope = true) :
+                    (this.isNope = false, this.isFav = false, this.isLike = true)
             }
         }
 

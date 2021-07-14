@@ -1,0 +1,52 @@
+<div class="row pt-5">
+    <!-- <div class="col-12">
+        <span class="badge badge-success" *ngFor="let item of all">{{item}}</span>
+    </div> -->
+
+    <div class="col-5">
+        <div class="row">
+            <div class="col">
+                First:
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                Second:
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                Third:
+            </div>
+        </div>
+    </div>
+
+    <div class="col-7">
+        <div class="row">
+            <div class="col">
+                <span class="badge badge-success mr-1" *ngFor="let item of recent1">{{item}}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <span class="badge badge-success mr-1" *ngFor="let item of recent2">{{item}}</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <span class="badge badge-success mr-1" *ngFor="let item of recent3">{{item}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col">
+        <button class="btn btn-danger float-right ml-3" (click)="stop()">Stop</button>
+        <button class="btn btn-primary float-right ml-3" (click)="start()">Start</button>
+    </div>
+</div>
