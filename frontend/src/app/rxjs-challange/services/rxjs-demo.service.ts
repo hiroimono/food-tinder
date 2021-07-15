@@ -29,7 +29,7 @@ export class RxjsDemoService {
     constructor(
         private _http: HttpClient
     ) {
-        this.testArr = [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 7, 7, 8];
+        this.testArr = [1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 7, 7, 8, 8, 8];
 
         this.recent = new BehaviorSubject(null);
         this.recent$ = this.recent.asObservable();

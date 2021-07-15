@@ -29,8 +29,8 @@ export class RxjsChallangeComponent implements OnInit {
 
     /** Delays for subscriptions */
     public delay1: number = 0;
-    public delay2: number = 3400;
-    public delay3: number = 5600;
+    public delay2: number = 7400;
+    public delay3: number = 12600;
 
     constructor(
         // private _rxjs: RxjsDemoService,
