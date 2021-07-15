@@ -151,7 +151,8 @@ interface Product {
     "quantity"?: number,
     "updatedAt"?: {
         "$date"?: string
-    }
+    },
+    flipped?: boolean
 }
 
 interface Data {

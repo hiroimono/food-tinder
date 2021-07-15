@@ -7,6 +7,6 @@
 
 <app-card-container>
     <ng-container *ngFor="let cat of productCategories">
-        <app-card [title]="cat.name" [image]="cat.image" (click)="selectCat(cat.name)"></app-card>
+        <app-card [cat]="cat" (click)="selectCat(cat.name)"></app-card>
     </ng-container>
 </app-card-container>

@@ -14,7 +14,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class HomeComponent implements OnInit {
     public products: Product[];
     private productsSubs: Subscription;
-    public productCategories: string[];
+    public productCategories: any[];
 
     constructor(
         private _products: ProductsService,

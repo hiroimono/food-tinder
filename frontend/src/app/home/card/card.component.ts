@@ -24,10 +24,8 @@ import { DataStoreService } from 'src/app/services/data-store.service';
     ]
 })
 export class CardComponent implements OnInit {
-    @Input() title: string;
-    @Input() text: string;
-    @Input() image: string;
     @Input() index: number;
+    @Input() cat: { name: string, image: string };
     @Input() isTinderMode: boolean;
     @Input() product: Product;
 
@@ -42,6 +40,9 @@ export class CardComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+
+        if (this.product) this.product.flipped = false;
+
         this.subscriptions = this._store.parentSubject$.subscribe(event => {
             this.startAnimation(event);
         });
@@ -57,15 +58,19 @@ export class CardComponent implements OnInit {
         this.subscriptions.unsubscribe();
     }
 
-    startAnimation(state) {
+    public startAnimation(state) {
         if (!this.animationState && this.index === 0) {
             this.animationState = state;
         }
     }
 
-    resetAnimationState(state) {
+    public resetAnimationState(state) {
         if (this.index === 0) {
             this.animationState = '';
         }
+    }
+
+    public flipCard() {
+        this.product.flipped = !this.product.flipped;
     }
 }
