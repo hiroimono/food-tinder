@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
+// To-Do for the feature
+
 const userSchema = mongoose.Schema(
     {
         name: {
